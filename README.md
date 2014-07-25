@@ -16,7 +16,6 @@ machine.convert_string("CIDER"); //=> "WFGPF"
 machine.reset();
 
 machine.convert_string("WFGPF"); //=> "CIDER"
-
 ```
 
 ## Compiling
