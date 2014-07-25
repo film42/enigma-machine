@@ -10,6 +10,7 @@
 #define enigma_utils_h
 
 #include <iostream>
+#include <algorithm>
 #include "types.h"
 
 int char_at( char character, MappingColumn source );
