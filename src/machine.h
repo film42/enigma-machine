@@ -26,6 +26,11 @@ namespace Enigma {
       // Members
       //
       char convert(char character) {
+        if( character < 65 || character > 90 ) {
+          std::cout << "Invalid character! Only [A-Z] allowed." << std::endl;
+          throw std::exception();
+        }
+      
         character = m_rotor3.convert( character, INPUT_OUTPUT, m_rotor3.outer() );
         character = m_rotor2.convert( character, m_rotor3.inner(), m_rotor2.outer() );
         character = m_rotor1.convert( character, m_rotor2.inner(), m_rotor1.outer() );

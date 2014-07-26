@@ -48,3 +48,15 @@ TEST(MachineTest, encode_string) {
 
   EXPECT_EQ( machine.convert_string("WFGPF") , "CIDER" );
 }
+
+TEST(MachineTest, accepts_only_valid_input_A_Z) {
+  Enigma::Rotor rotor1( Enigma::ROTOR_I, 12 );
+  Enigma::Rotor rotor2( Enigma::ROTOR_II, 2 );
+  Enigma::Rotor rotor3( Enigma::ROTOR_III, 11 );
+  Enigma::Machine machine( rotor1, rotor2, rotor3 );
+
+  EXPECT_THROW( machine.convert(' '), std::exception );
+  EXPECT_THROW( machine.convert('a'), std::exception );
+  EXPECT_THROW( machine.convert('\0'), std::exception );
+  EXPECT_THROW( machine.convert_string("TEST "), std::exception );
+}
