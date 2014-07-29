@@ -53,6 +53,7 @@ namespace Enigma {
 
       std::string convert_string( std::string str ) {
         MappingColumn mappings;
+        mappings.reserve( str.size() );
         for( auto c : str ) {
           mappings.push_back( convert(c) );
         }

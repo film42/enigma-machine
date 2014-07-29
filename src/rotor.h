@@ -37,6 +37,7 @@ namespace Enigma {
     
       MappingColumn outer() {
         MappingColumn column;
+        column.reserve( m_mapping.size() );
         auto it = std::next( m_mapping.begin(), m_position );
         for(;it != m_mapping.end(); ++it) {
           column.push_back( it->second );
@@ -47,6 +48,7 @@ namespace Enigma {
     
       MappingColumn inner() {
         MappingColumn column;
+        column.reserve( m_mapping.size() );
         auto it = std::next( m_mapping.begin(), m_position );
         for(;it != m_mapping.end(); ++it) {
           column.push_back( it->first );
